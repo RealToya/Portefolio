@@ -18,8 +18,6 @@ async function BootUp()
     boot.classList.add('boot_hidden');
     main.classList.remove('boot_hidden');
 
-    void main.offsetWidth;
-    
     await new Promise(res => setTimeout(res, 500));
     header.classList.remove('boot_hidden');
     header.classList.add('header_fall');
@@ -42,10 +40,10 @@ function LoadTranslation(lang)
     document.title = TRANSLATIONS_JSON[lang].title
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-translations]').forEach(datapack => { // It fetches the key value of every object that has the data-translations and then translates it
-        const selected = datapack.getAttribute('data-translations');
+    document.querySelectorAll('[data-translations]').forEach(langdata => { // It fetches the key value of every object that has the data-translations and then translates it if the language as a property with the same name
+        const selected = langdata.getAttribute('data-translations');
         if (TRANSLATIONS_JSON[lang][selected]) { 
-            datapack.textContent = TRANSLATIONS_JSON[lang][selected]; 
+            langdata.textContent = TRANSLATIONS_JSON[lang][selected]; 
         }
     });
 }
@@ -57,6 +55,10 @@ function SwitchLanguage(lang)
 
 /* Misc */
 
-function OpenHtml(Name) {
+async function OpenHtml(Name) {
     window.location.href = `${BASE_PATH_PAGES}${Name}.html`;
+    
+    header.classList.remove('header_fall');
+    await new Promise(res => setTimeout(res, 250));
+    header.classList.add('header_top');
 }

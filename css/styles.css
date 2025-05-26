@@ -53,15 +53,14 @@ body, html {
 .header {
     position: absolute;
     top: -100px; 
-    left: 0;
     width: 100vw;
-    height: 90px;
-    background-color: #ff0000;
+    height: 60px;
+    background-color: #002fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: top 0.8s ease-out;
-    z-index: 10;
+    transition: top 2s ease-in;
+    z-index: 1;
 }
 
 .header h1 {
@@ -71,6 +70,10 @@ body, html {
 
 .header_fall {
     top: 0;
+}
+
+.header_top {
+    top: -100px;
 }
 
 .nav_languages {
@@ -96,12 +99,12 @@ body, html {
 
 .main_content
 {
+    display: flex;
     position: absolute; 
     height: 100vh;
     width: 100vw;
     top: 0;
     left: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
@@ -110,17 +113,14 @@ body, html {
 .choosing_selection
 {
     display: flex;
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    gap: 80px;
 }
 
 .tab_selection
 {
+    display: flex;
     width: 250px;
     height: 500px;
-    display: flex;
     padding: 20px;
     flex-direction: column;
     justify-content: center;

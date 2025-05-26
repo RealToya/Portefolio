@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-translations = "lang">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <header class="header boot_hidden">
+    <h1>Welcome to the selection module</h1>
+     <nav class="nav_languages">
+        <button onclick="SwitchLanguage('pt')">pt</button>
+        <button onclick="SwitchLanguage('en')">en</button>
+        <button onclick="SwitchLanguage('es')">es</button>
+        <button onclick="SwitchLanguage('jp')">jp</button>
+    </nav>
+    </header>
+
+    <div class="boot_screen">
+        <h1 class="boot_text">Starting Module System...</h1>
+    </div>
+
+    <section class="main_content boot_hidden" data-option-selections = "4">
+        <section class="choosing_selection">
+            <div onclick="OpenHtml('drawing')" class="drawing_tab tab_selection">
+                <div class="tab_icon">
+                    <img src="">
+                </div>
+                <h1 class="tab_title" data-translations="drawing">Drawing</h1>
+            </div>
+            <div onclick="OpenHtml('modelling')" class="modelling_tab tab_selection">
+                <div class="tab_icon">
+                    <img src="">
+                </div>
+                <h1 class="tab_title" data-translations="modelling">3D Modelling</h1>
+            </div>
+            <div onclick="OpenHtml('programming')" class="programming_tab tab_selection">
+                <div class="tab_icon">
+                    <img src="">
+                </div>
+                <h1 class="tab_title" data-translations="programming">Programming</h1>
+            </div>
+            <div class="extras_tab tab_selection">
+                <div class="tab_icon">
+
+                </div>
+                <h1 class="tab_title" data-translations="Extras">Extras</h1>
+            </div>
+        </section>
+    </section>
+</body>
+<script type="text/javascript" src="js/base.js"></script>
+</html>

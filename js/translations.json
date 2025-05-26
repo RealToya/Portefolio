@@ -1,0 +1,16 @@
+{
+  "pt": {
+    "title": "Nome Genérico | Desenvolvedor de Jogos",
+    "drawing": "Desenho",
+    "modelling": "Modelação 3D",
+    "programming": "Programação",
+    "extras": "Extras"
+  },
+  "en": {
+    "title": "Generic Name | Game Developer",
+    "drawing": "Drawing",
+    "modelling": "3D Modelling",
+    "programming": "Programming",
+    "extras": "Extras"
+  }
+}

@@ -59,8 +59,8 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: top 2s ease-in;
     z-index: 1;
+    transition: top 1s ease-in-out;
 }
 
 .header h1 {
@@ -97,7 +97,7 @@ body, html {
     color: black;
 }
 
-.main_content
+.main_content_boot
 {
     display: flex;
     position: absolute; 

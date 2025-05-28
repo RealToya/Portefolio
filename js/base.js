@@ -1,30 +1,42 @@
-const BASE_PATH_DIRECTION = './'
-const BASE_PATH_CSS = './css/'
-const BASE_PATH_PAGES = './pages/'
-const BASE_PATH_JS = './js/'
+const BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : './'; //Verifies if component is being called from inside the pages directory
+const BASE_PATH_CSS = BASE_PATH + 'css/'
+const BASE_PATH_JS = BASE_PATH + 'js/'
+const BASE_PATH_COMPONENTS = BASE_PATH + 'components/';
 const LANGUAGES_FORMATTING = { PORTUGUESE: 'pt', ENGLISH: 'en', JAPANESE: 'jp', SPANISH: 'es'};
 
 let TRANSLATIONS_JSON = {};
 
-window.onload = async function () {await BootUp(); ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);}; // Startup Language
+window.onload = async function () {
+    await HTMLComponentLoading("#header_placement", BASE_PATH_COMPONENTS + 'header.html') ; //Loads header dynamically~
 
-async function BootUp()
-{
-    const boot = document.querySelector('.boot_screen');
-    const main = document.querySelector('.main_content');
-    const header = document.querySelector('.header');
+    await new Promise(res => setTimeout(res, 50));
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        await BootUp();
+    } else {
+        const header = document.querySelector('.header');
+        header.classList.remove('boot_hidden');
+        setTimeout(() => { header.classList.add('header_fall'); }, 100);
+    }
 
-    await new Promise(res => setTimeout(res, 2500));
-    boot.classList.add('boot_hidden');
-    main.classList.remove('boot_hidden');
+    ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);};
 
-    await new Promise(res => setTimeout(res, 500));
-    header.classList.remove('boot_hidden');
-    header.classList.add('header_fall');
+    async function BootUp()
+    {
+        const boot = document.querySelector('.boot_screen');
+        const main = document.querySelector('.main_content');
+        const header = document.querySelector('.header');
 
-    document.querySelectorAll('.tab_selection').forEach((tab, index) => {setTimeout (() => {tab.classList.add('content_arrival'); }, 400 * index); });
+        await new Promise(res => setTimeout(res, 2000));
+        boot.classList.add('boot_hidden');
+        main.classList.remove('boot_hidden');
 
-}
+        await new Promise(res => setTimeout(res, 500));
+        header.classList.remove('boot_hidden');
+        header.classList.add('header_fall');
+
+        document.querySelectorAll('.tab_selection').forEach((tab, index) => {setTimeout (() => {tab.classList.add('content_arrival'); }, 400 * index); });
+
+    }
 
 /* Language Translation Functions */
 
@@ -56,9 +68,20 @@ function SwitchLanguage(lang)
 /* Misc */
 
 async function OpenHtml(Name) {
-    window.location.href = `${BASE_PATH_PAGES}${Name}.html`;
-    
+    const header = document.querySelector('.header');
     header.classList.remove('header_fall');
     await new Promise(res => setTimeout(res, 250));
     header.classList.add('header_top');
+    await new Promise(res => setTimeout(res, 1000));
+    window.location.href = `${BASE_PATH}pages/${Name}.html`;
+    
 }
+
+async function HTMLComponentLoading(component, path) {
+    const response = await fetch(path);
+    const html = await response.text();
+    document.querySelector(component).innerHTML = html;
+}
+
+window.OpenHtml = OpenHtml; //Exposes function
+window.SwitchLanguage = SwitchLanguage; //Exposes function

@@ -2,20 +2,12 @@
 <html lang="en" data-translations = "lang">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title data-translations="title_index"></title>
 </head>
 <body>
-    <header class="header boot_hidden">
-    <h1>Welcome to the selection module</h1>
-     <nav class="nav_languages">
-        <button onclick="SwitchLanguage('pt')">pt</button>
-        <button onclick="SwitchLanguage('en')">en</button>
-        <button onclick="SwitchLanguage('es')">es</button>
-        <button onclick="SwitchLanguage('jp')">jp</button>
-    </nav>
-    </header>
+    <div id="header_placement"></div>
 
     <div class="boot_screen">
         <h1 class="boot_text">Starting Module System...</h1>
@@ -44,5 +36,5 @@
         </section>
     </section>
 </body>
-<script type="text/javascript" src="js/base.js"></script>
+<script type="module" src="js/base.js"></script>
 </html>

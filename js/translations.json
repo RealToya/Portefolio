@@ -1,14 +1,28 @@
 {
   "pt": {
-    "title": "Nome Genérico | Desenvolvedor de Jogos",
+    "title_index": "ToyaHinata | Desenvolvedor de Jogos",
+    "title_modelling": "ToyaHinata | Modelação 3D",
+    "title_drawing": "ToyaHinata | Desenho",
+    "title_programming": "Toya | Programação",
     "drawing": "Desenho",
     "modelling": "Modelação 3D",
     "programming": "Programação"
   },
   "en": {
-    "title": "Generic Name | Game Developer",
+    "title_index": "ToyaHinata | Game Developer",
+    "title_modelling": "ToyaHinata | 3D Modelling",
+    "title_drawing": "Toya | Drawing",
+    "title_programming": "Toya | Programming",
     "drawing": "Drawing",
     "modelling": "3D Modelling",
     "programming": "Programming"
+  },
+  "es": 
+  {
+
+  },
+  "jp":
+  {
+
   }
 }

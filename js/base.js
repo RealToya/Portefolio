@@ -20,24 +20,6 @@ window.onload = async function () {
 
     ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);};
 
-    async function BootUp()
-    {
-        const boot = document.querySelector('.boot_screen');
-        const main = document.querySelector('.main_content');
-        const header = document.querySelector('.header');
-
-        await new Promise(res => setTimeout(res, 2000));
-        boot.classList.add('boot_hidden');
-        main.classList.remove('boot_hidden');
-
-        await new Promise(res => setTimeout(res, 500));
-        header.classList.remove('boot_hidden');
-        header.classList.add('header_fall');
-
-        document.querySelectorAll('.tab_selection').forEach((tab, index) => {setTimeout (() => {tab.classList.add('content_arrival'); }, 400 * index); });
-
-    }
-
 /* Language Translation Functions */
 
 async function ChangeLanguage(lang)
@@ -66,13 +48,31 @@ function SwitchLanguage(lang)
 }
 
 /* Misc */
+async function BootUp()
+{
+    const boot = document.querySelector('.boot_screen');
+    const main = document.querySelector('.main_content_boot');
+    const header = document.querySelector('.header');
 
+    await new Promise(res => setTimeout(res, 2000));
+    boot.classList.add('boot_hidden');
+    main.classList.remove('boot_hidden');
+
+    await new Promise(res => setTimeout(res, 500));
+    header.classList.remove('boot_hidden');
+    header.classList.add('header_fall');
+
+    document.querySelectorAll('.tab_selection').forEach((tab) => {setTimeout (() => {tab.classList.add('content_arrival'); },); }); //Gets all object with tab_selection and applies the class "content_arrival"
+
+}
 async function OpenHtml(Name) {
     const header = document.querySelector('.header');
+
     header.classList.remove('header_fall');
     await new Promise(res => setTimeout(res, 250));
     header.classList.add('header_top');
     await new Promise(res => setTimeout(res, 1000));
+
     window.location.href = `${BASE_PATH}pages/${Name}.html`;
     
 }

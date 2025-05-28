@@ -1,6 +1,7 @@
 /* General CSS for the whole page or global shared properties */
 
-@font-face {
+@font-face 
+{
     font-family: '';
     src: url();
 }
@@ -12,17 +13,20 @@
     color: #ffffff;
 }
 
-*, *::before, *::after {
+*, *::before, *::after 
+{
     box-sizing: border-box;
 }
 
-body, html {
+body, html 
+{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
 }
 
-.boot_hidden {
+.boot_hidden 
+{
     display: none;
     opacity: 0;
     pointer-events: none;
@@ -31,7 +35,8 @@ body, html {
 
 /* Boot screen related css */
 
-.boot_screen {
+.boot_screen 
+{
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -47,67 +52,101 @@ body, html {
     color: rgb(50, 233, 33);
     font-size: 1.5rem;
     font-family: monospace;
-    text-shadow: 0 0 5px rgb(186, 212, 35);
+    text-shadow: 0 0 5px rgb(50, 211, 18);
 }
 
-.header {
+.header 
+{
     position: absolute;
     top: -100px; 
     width: 100vw;
     height: 60px;
-    background-color: #002fff;
+    background: linear-gradient(to right, rgba(30,30,30,0.95), rgba(10,10,10,0.95));
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    box-shadow: 0 2px 10px rgba(0, 128, 255, 0.2);
     z-index: 1;
     transition: top 1s ease-in-out;
 }
 
-.header h1 {
-    font-size: 1.2rem;
-    color: rgb(0, 0, 0);
+.header h1 
+{
+    font-size: 1rem;
+    color: white;
+    text-shadow: 0 0 3px #ffffff22;
+    letter-spacing: 1px;
 }
 
-.header_fall {
+.header_fall 
+{
     top: 0;
 }
 
-.header_top {
+.header_top 
+{
     top: -100px;
 }
 
-.nav_languages {
+.nav_languages 
+{
     position: absolute;
     right: 20px;
     display: flex;
     gap: 10px;
 }
 
-.nav_languages button {
-    background-color: transparent;
-    border: 1px solid rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-    padding: 5px 10px;
-    font-size: 1rem;
+/* Nav General CSS */
+
+.nav_languages button, .nav_home button 
+{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.9rem;
     cursor: pointer;
 }
 
-.nav_languages button:hover {
-    background-color: rgb(255, 255, 255);
-    color: black;
+.nav_home 
+{
+    position: absolute;
+    left: 20px;
+    display: flex;
+    gap: 10px;
 }
 
-.main_content
+.nav_languages button:hover, .nav_home button:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* */
+
+.main_content_boot
 {
     display: flex;
     position: absolute; 
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     top: 0;
     left: 0;
     justify-content: center;
     align-items: center;
     background-color: black;
+}
+
+.main_content 
+{
+    display: flex;
+    background-color: #000000;
+    margin-top: 60px; 
+    animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
+    min-height: 100vh;
+    color: white;
 }
 
 .choosing_selection
@@ -125,24 +164,99 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blue;
-    border-radius: 15px;
+    background: rgba(50, 100, 255, 0.15);
+    border: 2px solid rgba(100, 200, 255, 0.4);
     gap: 15px;
-    transition: transform 0.4s, box-shadow 0.3s;
+    backdrop-filter: blur(6px);
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
 }
 
-.tab_selection:hover
+.tab_selection:hover 
 {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 128, 255, 0.5);
+    transform: scale(1.05);
+    filter: brightness(1.15) contrast(1.15);
 }
 
-.tab_icon
+.tab_selection::after 
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.tab_icon 
 {
     height: 128px;
     width: 128px;
-    background-color: blueviolet;
+    background: radial-gradient(circle at center, #9ec9ffbb, #2e4a99cc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.tab_icon:hover 
+{
+    background: radial-gradient(circle at center, #b6d1ffee, #1a3d8fcc);
+}
+
+/* "About me" Page CSS */
+
+.options_grid 
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    min-width: 180px;
+    width: auto;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.option_card 
+{
+    width: 100%;
+    padding: 10px 16px;
+    background-color: rgb(5, 5, 5);
+    border: 1px solid rgba(70, 70, 70, 0.1);
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: linear-gradient(to top, rgba(214, 214, 214, 0.2), rgba(255,255,255,0.1));
+}
+
+.option_card.selected {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 128, 255, 0.5);
+    transform: scale(1.05);
+    border: 2px solid #00bfff;
+}
+
+.option_card:hover 
+{
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.02);
+    color: #000000;
+}
+
+.aboutme_content {
+    padding: 30px;
+}
+
+
 
 /* Animations */
 
@@ -158,6 +272,24 @@ body, html {
     }
 }
 
-.content_arrival {
-    animation: contentarrival 0.5s ease-in;
+@keyframes contentleave
+{
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.2);
+    }
+}
+
+.content_arrival
+{
+    animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
+}
+
+.content_leave
+{
+    animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
 }

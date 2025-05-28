@@ -4,6 +4,8 @@
     "title_modelling": "ToyaHinata | Modelação 3D",
     "title_drawing": "ToyaHinata | Desenho",
     "title_programming": "Toya | Programação",
+    "title_aboutme": "Toya | Sobre mim",
+    "aboutme": "Sobre mim",
     "drawing": "Desenho",
     "modelling": "Modelação 3D",
     "programming": "Programação"
@@ -13,6 +15,8 @@
     "title_modelling": "ToyaHinata | 3D Modelling",
     "title_drawing": "Toya | Drawing",
     "title_programming": "Toya | Programming",
+    "title_aboutme": "Toya | About me",
+    "aboutme": "About me",
     "drawing": "Drawing",
     "modelling": "3D Modelling",
     "programming": "Programming"

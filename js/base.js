@@ -1,4 +1,4 @@
-const BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : './'; //Verifies if component is being called from inside the pages directory
+const BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : './'; //Verifies if script is being called from inside the pages directory
 const BASE_PATH_CSS = BASE_PATH + 'css/'
 const BASE_PATH_JS = BASE_PATH + 'js/'
 const BASE_PATH_COMPONENTS = BASE_PATH + 'components/';
@@ -62,7 +62,7 @@ async function BootUp()
     header.classList.remove('boot_hidden');
     header.classList.add('header_fall');
 
-    document.querySelectorAll('.tab_selection').forEach((tab) => {setTimeout (() => {tab.classList.add('content_arrival'); },); }); //Gets all object with tab_selection and applies the class "content_arrival"
+    document.querySelectorAll('.tab_selection').forEach((tab) => {setTimeout (() => {tab.classList.add('content_arrival'); },); 200 }); //Gets all object with tab_selection and applies the class "content_arrival"
 
 }
 async function OpenHtml(Name) {

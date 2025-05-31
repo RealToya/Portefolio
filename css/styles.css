@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Space Mono';
-    src: url('../assets/fonts/SpaceMono-Bold.tff') format('truetype');
+    src: url('../assets/fonts/SpaceMono-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -29,9 +29,10 @@
     margin: 0;
     padding: 0;
     color: #ffffff;
+    box-sizing: border-box;
 }
 
-*, *::before, *::after 
+*::before, *::after 
 {
     box-sizing: border-box;
 }
@@ -42,6 +43,12 @@ body, html
     width: 100vw;
     overflow: hidden;
     font-family: 'Space Mono', monospace;
+}
+
+h1 
+{
+    font-size: 1rem;
+    color: white;
 }
 
 button {
@@ -96,24 +103,6 @@ button {
     transition: top 1s ease-in-out;
 }
 
-.header h1 
-{
-    font-size: 1rem;
-    color: white;
-    text-shadow: 0 0 3px #ffffff22;
-    letter-spacing: 1px;
-}
-
-.header_fall 
-{
-    top: 0;
-}
-
-.header_top 
-{
-    top: -100px;
-}
-
 .nav_languages 
 {
     position: absolute;
@@ -142,12 +131,13 @@ button {
     gap: 10px;
 }
 
-.nav_languages button:hover, .nav_home button:hover {
+.nav_languages button:hover, .nav_home button:hover, .option_card:hover, .tab_icon:hover, .tab_selection:hover 
+{
     background-color: #ffffff;
     color: #000000;
 }
 
-/* */
+/* Main Body of CSS*/
 
 .main_content_boot
 {
@@ -205,13 +195,6 @@ button {
     text-align: center;
 }
 
-.tab_selection:hover 
-{
-    transform: scale(1.05);
-    background-color: #ffffff;
-    color: #000000;
-}
-
 .tab_selection::after {
     content: none;
 }
@@ -232,14 +215,13 @@ button {
     transition: transform 0.2s ease;
 }
 
-.tab_icon:hover 
+/* "About me" Page CSS */
+
+.aboutme_content h1
 {
-    background-color: #ffffff;
-    color: #000000;
-    transform: scale(1.05);
+    font-size: 1.5rem;
 }
 
-/* "About me" Page CSS */
 .sidebar
 {
     display: flex;
@@ -261,10 +243,10 @@ button {
 
 .option_card 
 {
-    padding: 10px 16px;
+    padding: 12px 8px;
     border: 2px solid #ffffff;
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
     display: flex;
     align-items: center;
@@ -276,19 +258,16 @@ button {
     background-color: white;
     color: black;
     font-weight: bold;
-    box-shadow: 0 0 10px rgba(0, 128, 255, 0.5);
-    transform: scale(1.05);
-}
-
-.option_card:hover 
-{
-    background-color: #ffffff;
-    color: #000000;
 }
 
 .aboutme_content 
 {
     padding: 30px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 .icon_grid
@@ -314,12 +293,48 @@ button {
     justify-content: center;
     width: 42px;
     height: 42px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease,
 }
 
 .iconcase img 
 {
     width: inherit;
+}
+
+.terminal {
+    position: relative;
+    background: #000000;
+    border: 2px solid #ffffff;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 1rem;
+    max-width: 600px;
+    height: 200px;
+    overflow-y: auto;
+    animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
+}
+
+.terminal_output {
+    white-space: pre-wrap;
+    line-height: 1.2;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.terminal_button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: transparent;
+    border: 2px solid #00ff99;
+    color: #00ff99;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.terminal_button:hover {
+    background: #00ff99;
+    color: #000000;
 }
 
 /* Animations */
@@ -352,13 +367,23 @@ button {
     0%, 100% {
         opacity: 1;
         text-shadow: 
-            0 0 8px #55f,
-            0 0 20px #55f55f88;
+            0 0 8px rgb(37, 37, 37),
+            0 0 20px #80808088;
     }
     50% {
         opacity: 0.7;
         text-shadow: none;
     }
+}
+
+.header_fall 
+{
+    top: 0;
+}
+
+.header_top 
+{
+    top: -100px;
 }
 
 .content_arrival

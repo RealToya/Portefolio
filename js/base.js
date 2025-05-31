@@ -1,13 +1,24 @@
-const BASE_PATH = window.location.pathname.includes('/pages/') ? '../' : './'; //Verifies if script is being called from inside the pages directory
-const BASE_PATH_CSS = BASE_PATH + 'css/'
-const BASE_PATH_JS = BASE_PATH + 'js/'
-const BASE_PATH_COMPONENTS = BASE_PATH + 'components/';
-const LANGUAGES_FORMATTING = { PORTUGUESE: 'pt', ENGLISH: 'en', JAPANESE: 'jp', SPANISH: 'es'};
-
-let TRANSLATIONS_JSON = {};
+import { BASE_PATH_COMPONENTS, LANGUAGES_FORMATTING, BASE_PATH } from './constants.js';
+import { ChangeLanguage } from './language_system.js';
+import { InitAcademicPath, InitSkills, InitProjects, InitGoals } from './block_renderer.js';
 
 window.onload = async function () {
-    await HTMLComponentLoading("#header_placement", BASE_PATH_COMPONENTS + 'header.html') ; //Loads header dynamically~
+    const buttonpaths = 
+    {
+        "academic_path": InitAcademicPath,
+        "skills": InitSkills,
+        "projects": InitProjects,
+        "goals": InitGoals
+    };
+
+    for (const [k, i] of Object.entries(buttonpaths)) {
+        const element = document.querySelector(`[data-translations="${k}"]`);
+        if (element) {
+            element.addEventListener("click", i);
+        }
+    }
+
+    await HTMLComponentLoading("#header_placement", BASE_PATH_COMPONENTS + 'header.html') ; //Loads header dynamically
 
     await new Promise(res => setTimeout(res, 50));
     if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
@@ -18,34 +29,7 @@ window.onload = async function () {
         setTimeout(() => { header.classList.add('header_fall'); }, 100);
     }
 
-    ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);};
-
-/* Language Translation Functions */
-
-async function ChangeLanguage(lang)
-{
-    const translationsrequest = await fetch(BASE_PATH_JS + 'translations.json'); // Fetches the Json by http request, loads the JSON file and stores it as an object with its properties. 
-    TRANSLATIONS_JSON = await translationsrequest.json();
-    LoadTranslation(lang)
-}
-
-function LoadTranslation(lang)
-{
-    document.title = TRANSLATIONS_JSON[lang].title
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll('[data-translations]').forEach(langdata => { // It fetches the key value of every object that has the data-translations and then translates it if the language as a property with the same name
-        const selected = langdata.getAttribute('data-translations');
-        if (TRANSLATIONS_JSON[lang][selected]) { 
-            langdata.textContent = TRANSLATIONS_JSON[lang][selected]; 
-        }
-    });
-}
-
-function SwitchLanguage(lang)
-{
-    ChangeLanguage(lang)
-}
+    await ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);};
 
 /* Misc */
 async function BootUp()
@@ -62,7 +46,8 @@ async function BootUp()
     header.classList.remove('boot_hidden');
     header.classList.add('header_fall');
 
-    document.querySelectorAll('.tab_selection').forEach((tab) => {setTimeout (() => {tab.classList.add('content_arrival'); },); 200 }); //Gets all object with tab_selection and applies the class "content_arrival"
+    document.querySelectorAll('.tab_selection').forEach((tab) => { setTimeout(() => { tab.classList.add('content_arrival'); }, 200);
+});
 
 }
 async function OpenHtml(Name) {
@@ -84,4 +69,3 @@ async function HTMLComponentLoading(component, path) {
 }
 
 window.OpenHtml = OpenHtml; //Exposes function
-window.SwitchLanguage = SwitchLanguage; //Exposes function

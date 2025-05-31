@@ -8,12 +8,22 @@
     "academic_path": "Caminho Académico",
     "selectionscreen": "Voltar",
     "skills": "Competências",
-    "projets": "Projetos",
+    "projects": "Projetos",
     "goals": "Objetivos",
     "aboutme": "Sobre mim",
     "drawing": "Desenho",
     "modelling": "Modelação 3D",
-    "programming": "Programação"
+    "programming": "Programação",
+    "academic_path_logs": 
+    [ 
+      "> _A iniciar os Registos Académicos...", 
+      "> _A aceder ao Diretório do Index...", 
+      "> _A carregar o Histórico...", 
+      "> _A analisar os cursos...", 
+      "> _A Colocar os toques finais...", 
+      "> _A mostrar no Output...", 
+      "> _Completado."
+    ]
   },
   "en": {
     "title_index": "ToyaHinata | Game Developer",
@@ -24,12 +34,22 @@
     "academic_path": "Academic Path",
     "selectionscreen": "Return",
     "skills": "Skills",
-    "projets": "Projects",
+    "projects": "Projects",
     "goals": "Goals",
     "aboutme": "About me",
     "drawing": "Drawing",
     "modelling": "3D Modelling",
-    "programming": "Programming"
+    "programming": "Programming",
+    "academic_path_logs": 
+    [ 
+      "> _Initializing Academic Records...", 
+      "> _Accessing Path of Index...", 
+      "> _Loading Academic History...", 
+      "> _Parsing Coursework...", 
+      "> _Finalizing...", 
+      "> _Displaying Output...", 
+      "> _Complete."
+    ]
   },
   "es": 
   {

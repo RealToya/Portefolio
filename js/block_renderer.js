@@ -54,8 +54,7 @@ export function InitProjects() {
     container.innerHTML = 
     `
         <h1 data-translations="projects">${GetTranslationFromKey("projects")}</h1>
-        <div>
-            <div class="projects_container">
+        <div class="projects_container">
             <div class="game_card">
                 <div class="status development"><span>In Development</span></div>
                 <img src="../assets/placeholder_banner.png" class="game_image">
@@ -73,7 +72,6 @@ export function InitProjects() {
                     <p class="game_genre">First Person Thriller Shooter</p>
                     <p class="game_role">My Roles: Sole Developer </p>
                 </div>
-            </div>
             </div>
         </div>
     `;

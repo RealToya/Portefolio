@@ -174,10 +174,21 @@ button {
     gap: 10px;
 }
 
-.nav_languages button:hover, .nav_home button:hover, .option_card:hover, .tab_icon:hover, .tab_selection:hover 
+.nav_languages button:hover, .nav_home button:hover, .option_card:hover, .tab_icon:hover
 {
     background-color: #ffffff;
     color: #000000;
+}
+
+.tab_selection:hover 
+{
+    transform: translateY(-10px);
+    background-color: #1a1a1a;
+}
+
+.tab_selection:active
+{
+    transform: scale(0.95);
 }
 
 /* Main Body of CSS*/
@@ -210,32 +221,60 @@ button {
 .choosing_selection
 {
     display: flex;
-    gap: 80px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
 }
 
-.tab_selection
+.tab_selection 
 {
-    position: relative;
-    display: flex;
-    font-family: 'Space Mono', monospace;
+    position: absolute;
     width: 250px;
     height: 500px;
     padding: 20px;
+    background: #111111;
+    border: 2px solid #ffffff;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #111111;
-    color: #ffffff;
-    border: 2px solid #ffffff;
     gap: 15px;
-    text-align: center;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    font-size: 0.9rem;
+    z-index: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.tab_selection:nth-child(1) { /* Offset for the cards*/
+    transform: translateX(-250px);
+    z-index: 1;
+}
+.tab_selection:nth-child(2) { /* Offset for the cards*/
+    transform: translateX(-100px);
     z-index: 2;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    text-align: center;
+}
+.tab_selection:nth-child(3) { /* Offset for the cards*/
+    transform: translateX(100px);
+    z-index: 3;
+}
+.tab_selection:nth-child(4) { /* Offset for the cards*/
+    transform: translateX(250px);
+    z-index: 4;
+}
+
+
+.tab_selection:hover {
+    transform: translateY(-20px) scale(1.05);
+    z-index: 10;
+}
+
+.tab_title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ffffff;
 }
 
 .tab_selection::after {
@@ -246,20 +285,30 @@ button {
     color: inherit;
 }
 
-.tab_icon 
-{
-    height: 128px;
-    width: 128px;
+.tab_icon {
+    width: 100px;
+    height: 100px;
     background: #000000;
     border: 2px solid #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
+.tab_icon img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
 /* "About me" Page CSS */
 
+.profile_img img
+{
+    border: 2px solid #ffffff;
+    margin: 20px 0;
+}
 .sidebar
 {
     display: flex;
@@ -299,10 +348,23 @@ button {
     font-weight: bold;
 }
 
+.aboutme_me
+{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    align-items: center;
+}
+
+.aboutme_me img
+{
+    width: 128px;
+}
+
 .aboutme_content 
 {
     padding: 30px;
-    width: 100vw;
+    width: calc(100vw - 200px);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -318,11 +380,6 @@ button {
     font-size: 1.2rem;
 }
 
-.aboutme_content p
-{
-    margin-top: 10px;
-}
-
 .skill_container {
     display: flex;
     flex-wrap: wrap;
@@ -331,7 +388,6 @@ button {
     padding: 10px;
     border: 2px solid white;
     background: #111;
-    animation: float 1.2s ease-out;
 }
 
 .skill_category {
@@ -386,8 +442,7 @@ button {
   width: 8rem;
   font-weight: 600;        
   color: #ffffff;     
-  padding: 2px 6px;  
-  border-radius: 4px;  
+  padding: 2px 6px;    
   margin: 8px;    
   text-transform: uppercase; 
   letter-spacing: 0.1em; 
@@ -457,7 +512,6 @@ button {
     max-width: 600px;
     height: 200px;
     overflow-y: auto;
-    animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
 }
 
 .terminal_output {
@@ -516,12 +570,6 @@ button {
     50% {
         opacity: 0.7;
     }
-}
-
-@keyframes float {
-    from { transform: translateY(20px); opacity: 0; }
-
-    to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes wipe {

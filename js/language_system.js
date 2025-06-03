@@ -9,7 +9,7 @@ export function GetDefinedLang() {
 }
 
 export function GetTranslationFromKey(key) {
-    return TRANSLATIONS_JSON[ActiveLang]?.[key];
+    return TRANSLATIONS_JSON[ActiveLang]?.[key]; //if the language exists then you can access the selected key.
 }
 
 export async function ChangeLanguage(lang) {

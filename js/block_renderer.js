@@ -24,16 +24,56 @@ export function InitSkills() {
     const container = document.querySelector('.aboutme_content');
     container.innerHTML = `
         <h1 data-translations="skills">${GetTranslationFromKey("skills")}</h1>
-        <div><div></div></div>
+    <div>
+        <div class="skill_container">
+            <div class="skill_category">
+            <h2>Programming Related</h2>
+            <ul>
+                <li> C# / C++  / Java</li>
+                <li>Unity, Unreal</li>
+            </ul>
+            </div>
+            <div class="skill_category">
+                    <h2>Art Related</h2>
+                <ul>
+                    <li>3D Artist</li>
+                </ul>
+            </div>
+            <div class="skill_category">
+                    <h2>Design Related</h2>
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>
     `;
 }
 
 export function InitProjects() {
     const container = document.querySelector('.aboutme_content');
-    container.innerHTML = `
+    container.innerHTML = 
+    `
         <h1 data-translations="projects">${GetTranslationFromKey("projects")}</h1>
         <div>
-            <div>
+            <div class="projects_container">
+            <div class="game_card">
+                <div class="status development"><span>In Development</span></div>
+                <img src="../assets/placeholder_banner.png" class="game_image">
+                <div class="game_info">
+                    <h2 class="game_title"></span>Huddle</h2>
+                    <p class="game_genre">Third Person Arcade Horror</p>
+                    <p class="game_role">My Roles: 3D Artist and Enviroment Artist</p>
+                </div>
+            </div>
+            <div class="game_card">
+                <div class="status preproduction"><span>In Pre-Production</span></div>
+                <img src="../assets/placeholder_banner.png" class="game_image">
+                <div class="game_info">
+                    <h2 class="game_title"></span>Project Blue Glow</h2>
+                    <p class="game_genre">First Person Thriller Shooter</p>
+                    <p class="game_role">My Roles: Sole Developer </p>
+                </div>
+            </div>
             </div>
         </div>
     `;
@@ -41,10 +81,11 @@ export function InitProjects() {
 
 export function InitGoals() {
     const container = document.querySelector('.aboutme_content');
-    container.innerHTML = `
+    container.innerHTML = 
+    `
         <h1 data-translations="goals">${GetTranslationFromKey("goals")}</h1>
         <div>
-            <div></div
+            <h2>Something is being worked on...</h2>
         </div>
     `;
 }

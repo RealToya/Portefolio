@@ -115,6 +115,7 @@ button {
     position: fixed;
     bottom: 25px;
     left: 50%;
+    width: 32vw;
     transform: translateX(-50%);
     background: #000000;
     padding: 10px 20px;
@@ -123,10 +124,6 @@ button {
     pointer-events: none;
     font-family: 'Space Mono', monospace;
     text-align: center;
-}
-
-.mobile_warning p
-{
     color: #fc3939;
 }
 
@@ -139,10 +136,9 @@ button {
   padding: 8px;
   border-radius: 6px;
   border: 1px solid white;
-
   position: absolute;
   z-index: 10;
-  bottom: 125%; /* Above the icon */
+  bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -247,19 +243,19 @@ button {
     transform: translateX(0) translateY(0);
 }
 
-.tab_selection:nth-child(1) { /* Offset for the cards*/
+.tab_selection:nth-child(1) { /* Offset for the about me card*/
     transform: translateX(-250px);
     z-index: 1;
 }
-.tab_selection:nth-child(2) { /* Offset for the cards*/
+.tab_selection:nth-child(2) { /* Offset for the drawing card*/
     transform: translateX(-100px);
     z-index: 2;
 }
-.tab_selection:nth-child(3) { /* Offset for the cards*/
+.tab_selection:nth-child(3) { /* Offset for the 3d modelling card*/
     transform: translateX(100px);
     z-index: 3;
 }
-.tab_selection:nth-child(4) { /* Offset for the cards*/
+.tab_selection:nth-child(4) { /* Offset for the programming card*/
     transform: translateX(250px);
     z-index: 4;
 }
@@ -537,6 +533,93 @@ button {
     color: #000000;
 }
 
+/* Modelling Page*/
+
+.gallery_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 20px;
+}
+
+.gallery_container 
+{
+    width: 100%;
+    padding: 60px 40px;
+    padding: 40px;
+}
+
+.section_title 
+{
+    font-size: 1.5rem;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+.filter_controls {
+    margin: 20px 0;
+}
+
+.filter_button {
+    background: transparent;
+    border: 2px solid #ffffff;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter_button:hover, .filter_button.active {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.work_card {
+    width: 300px;
+    border: 2px solid #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-out;
+}
+
+.work_card:hover {
+    transform: scale(1.02);
+}
+
+.work_card img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ffffff;
+    aspect-ratio: 16/9;
+}
+
+.work_card.non_interactable {
+    opacity: 0.2;
+    transform: scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in-out;
+}
+
+.work_info {
+    padding: 16px;
+    border: 2px solid #ffffff;
+}
+
+.work_info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.work_info p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
 /* Animations */
 
 @keyframes contentarrival
@@ -581,22 +664,22 @@ button {
   }
 }
 
-.header_fall 
+.header_fall /* Injection animation */
 {
     top: 0;
 }
 
-.header_top 
+.header_top /* Injection animation */
 {
     top: -100px;
 }
 
-.content_arrival
+.content_arrival /* Injection animation */
 {
     animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
 }
 
-.content_leave
+.content_leave /* Injection animation */
 {
     animation: contentarrival 0.5s cubic-bezier(0.54, 0.13, 1, 1);
 }

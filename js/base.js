@@ -30,6 +30,7 @@ window.onload = async function () {
     }
 
     await ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);};
+    Filter3DModelOptions()
 
 /* Misc */
 async function BootUp()
@@ -66,6 +67,27 @@ async function HTMLComponentLoading(component, path) {
     const response = await fetch(path);
     const html = await response.text();
     document.querySelector(component).innerHTML = html;
+}
+
+function Filter3DModelOptions() {
+    const buttons = document.querySelectorAll('.filter_button');
+    const cards = document.querySelectorAll('.work_card');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+
+            buttons.forEach(obutton => obutton.classList.remove('actived'));
+            button.classList.add('actived');
+
+            const filter = button.getAttribute('data-filter');
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-model-category').toLowerCase();
+                const isinthecorrectfilter = filter === 'all' || category.includes(filter);
+                card.classList.toggle('non_interactable', !isinthecorrectfilter);
+            });
+        });
+    });
 }
 
 window.OpenHtml = OpenHtml; //Exposes function

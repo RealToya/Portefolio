@@ -37,11 +37,14 @@ export function InitSkills() {
                     <h2>Art Related</h2>
                 <ul>
                     <li>3D Artist</li>
+                    <li>#</li>
                 </ul>
             </div>
             <div class="skill_category">
                     <h2>Design Related</h2>
                 <ul>
+                    <li>#</li>
+                    <li>#</li>
                 </ul>
             </div>
         </div>
@@ -61,7 +64,7 @@ export function InitProjects() {
                 <div class="game_info">
                     <h2 class="game_title"></span>Huddle</h2>
                     <p class="game_genre">Third Person Arcade Horror</p>
-                    <p class="game_role">My Roles: 3D Artist and Enviroment Artist</p>
+                    <p class="game_role">My Roles: 3D Artist and 3D Enviroment Artist</p>
                 </div>
             </div>
             <div class="game_card">

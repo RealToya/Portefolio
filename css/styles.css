@@ -150,6 +150,12 @@ button {
   opacity: 1;
 }
 
+.non_interactable {
+    opacity: 0.2;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
 /* Nav General CSS */
 
 .nav_languages button, .nav_home button 

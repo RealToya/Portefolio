@@ -13,17 +13,13 @@
     "goals": "Objetivos",
     "aboutme": "Sobre mim",
     "drawing": "Desenho",
+    "design": "Design",
     "modelling": "Modelação 3D",
     "programming": "Programação",
     "academic_path_logs": 
     [ 
-      "> _A iniciar os Registos Académicos...", 
-      "> _A aceder ao Diretório do Index...", 
-      "> _A carregar o Histórico...", 
-      "> _A analisar os cursos...", 
-      "> _A Colocar os toques finais...", 
-      "> _A mostrar no Output...", 
-      "> _Completado."
+      "2018–2023: Escola Artística Soares dos Reis",
+      "2023–2026: Universidade de Lusófona do Porto – Licenciatura em Videojogos e Aplicações Multimédia"
     ]
   },
   "en": {
@@ -40,17 +36,13 @@
     "goals": "Goals",
     "aboutme": "About me",
     "drawing": "Drawing",
+    "design": "Design",
     "modelling": "3D Modelling",
     "programming": "Programming",
     "academic_path_logs": 
     [ 
-      "> _Initializing Academic Records...", 
-      "> _Accessing Path of Index...", 
-      "> _Loading Academic History...", 
-      "> _Parsing Coursework...", 
-      "> _Finalizing...", 
-      "> _Displaying Output...", 
-      "> _Complete."
+      "2018–2023: Soares dos Reis Art School",
+      "2023–2026: Lusófona University of Porto – Bachelor in Video Games and Multimedia Applications"
     ]
   },
   "es": 

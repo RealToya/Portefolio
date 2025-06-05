@@ -1,5 +1,4 @@
 import { BASE_PATH_JS, LANGUAGES_FORMATTING } from './constants.js';
-import { InitAcademicPath } from './block_renderer.js';
 
 let TRANSLATIONS_JSON = {};
 let ActiveLang = LANGUAGES_FORMATTING.ENGLISH;
@@ -17,12 +16,6 @@ export async function ChangeLanguage(lang) {
     const res = await fetch(BASE_PATH_JS + 'translations.json');
     TRANSLATIONS_JSON = await res.json();
     LoadTranslation(lang);
-
-    if (document.querySelector('.terminal')) {
-        InitAcademicPath();
-        const { ContinueLogDisplay } = await import('./block_renderer.js');
-        ContinueLogDisplay.logs = 0;
-    }
 }
 
 function LoadTranslation(lang) {

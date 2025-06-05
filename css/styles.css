@@ -176,13 +176,13 @@ button {
     color: #000000;
 }
 
-.tab_selection:hover 
+.card_selection:hover 
 {
     transform: translateY(-10px);
     background-color: #1a1a1a;
 }
 
-.tab_selection:active
+.card_selection:active
 {
     transform: scale(0.95);
 }
@@ -216,14 +216,10 @@ button {
 
 .choosing_selection
 {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
+    height: 50vh;
 }
 
-.tab_selection 
+.card_selection 
 {
     position: absolute;
     width: 250px;
@@ -237,33 +233,32 @@ button {
     align-items: center;
     gap: 15px;
     cursor: pointer;
-    transition: transform 0.3s ease, z-index 0.3s ease;
+    transition: transform 0.2s ease, z-index 0.2s ease;
+    transform: translateX(var(--x-off)) scale(1);
     font-size: 0.9rem;
     z-index: 1;
-    transform: translateX(0) translateY(0);
 }
 
-.tab_selection:nth-child(1) { /* Offset for the about me card*/
-    transform: translateX(-250px);
+.card_selection:nth-child(1) {
+    --x-off: -400px; /* Variable for the position of the card so they stay in place */
     z-index: 1;
 }
-.tab_selection:nth-child(2) { /* Offset for the drawing card*/
-    transform: translateX(-100px);
+.card_selection:nth-child(2) {
+    --x-off: -200px; /* Variable for the position of the card so they stay in place */
     z-index: 2;
 }
-.tab_selection:nth-child(3) { /* Offset for the 3d modelling card*/
-    transform: translateX(100px);
-    z-index: 3;
+.card_selection:nth-child(3) {
+    --x-off: 200px; /* Variable for the position of the card so they stay in place */
+    z-index: 5;
 }
-.tab_selection:nth-child(4) { /* Offset for the programming card*/
-    transform: translateX(250px);
+.card_selection:nth-child(4) {
+    --x-off: 0; /* Variable for the position of the card so they stay in place */
     z-index: 4;
 }
 
-
-.tab_selection:hover {
-    transform: translateY(-20px) scale(1.05);
-    z-index: 10;
+.card_selection:hover {
+    transform: translateX(var(--x-off)) scale(1.05);
+    z-index: 6;
 }
 
 .tab_title {
@@ -273,11 +268,11 @@ button {
     color: #ffffff;
 }
 
-.tab_selection::after {
+.card_selection::after {
     content: none;
 }
 
-.tab_selection * {
+.card_selection * {
     color: inherit;
 }
 
@@ -498,39 +493,54 @@ button {
     width: inherit;
 }
 
-.terminal {
-    position: relative;
-    background: #000000;
-    border: 2px solid #ffffff;
-    padding: 15px;
+.timeline_container {
     margin-top: 20px;
-    font-size: 1rem;
+    padding-left: 20px;
+    position: relative;
     max-width: 600px;
-    height: 200px;
-    overflow-y: auto;
 }
 
-.terminal_output {
-    white-space: pre-wrap;
-    line-height: 1.2;
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.timeline_enter {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.timeline_enter .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #00ff99;
+    position: absolute;
+    left: -28px;
+    top: 12px;
+}
+
+.timeline_enter .log_text {
+    font-family: 'Space Mono', monospace;
+    background: #111;
+    border: 2px solid #00ff99;
+    padding: 6px 12px;
+    margin-left: 10px;
+    color: #00ff99;
     animation: flicker 1.5s infinite alternate;
 }
 
-.terminal_button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: transparent;
-    border: 2px solid #00ff99;
-    color: #00ff99;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    cursor: pointer;
+.timeline_enter {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: transform 0.4s ease-in, opacity 1s ease-in-out;
 }
 
-.terminal_button:hover {
-    background: #00ff99;
-    color: #000000;
+.timeline_enter.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Modelling Page*/
@@ -663,6 +673,18 @@ button {
     left: 100%;
   }
 }
+
+@keyframes blinke {
+  from, to { border-color: transparent }
+  50% { border-color: #00ff99; }
+}
+
+.typestyle {
+    white-space: nowrap;
+    animation: blinke 0.8s step-end infinite;
+    font-family: monospace;
+}
+
 
 .header_fall /* Injection animation */
 {

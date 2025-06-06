@@ -21,12 +21,14 @@ window.onload = async function () {
     await HTMLComponentLoading("#header_placement", BASE_PATH_COMPONENTS + 'header.html') ; //Loads header dynamically
 
     await new Promise(res => setTimeout(res, 50));
-    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/Portefolio/') || window.location.pathname.endsWith('/Portefolio')) {
         await BootUp();
     } else {
         const header = document.querySelector('.header');
-        header.classList.remove('boot_hidden');
-        setTimeout(() => { header.classList.add('header_fall'); }, 100);
+        if (header) {
+            header.classList.remove('boot_hidden');
+            setTimeout(() => { header.classList.add('header_fall'); }, 100);
+        }
     }
 
     await ChangeLanguage(LANGUAGES_FORMATTING.ENGLISH);};

@@ -112,6 +112,7 @@ button {
 }
 
 .mobile_warning {
+    display: none;
     position: fixed;
     bottom: 25px;
     left: 50%;
@@ -124,7 +125,7 @@ button {
     pointer-events: none;
     font-family: 'Space Mono', monospace;
     text-align: center;
-    color: #fc3939;
+    color: #ffc934;
 }
 
 .tooltip_text {
@@ -227,9 +228,11 @@ button {
 
 .card_selection 
 {
-    position: absolute;
-    width: 250px;
+    position: relative;
+    width: 90vw;
+    max-width: 280px;
     height: 500px;
+    min-height: 200px;
     padding: 20px;
     background: #111111;
     border: 2px solid #ffffff;
@@ -245,26 +248,17 @@ button {
     z-index: 1;
 }
 
-.card_selection:nth-child(1) {
-    --x-off: -400px; /* Variable for the position of the card so they stay in place */
-    z-index: 1;
-}
-.card_selection:nth-child(2) {
-    --x-off: -200px; /* Variable for the position of the card so they stay in place */
-    z-index: 2;
-}
-.card_selection:nth-child(3) {
-    --x-off: 200px; /* Variable for the position of the card so they stay in place */
-    z-index: 5;
-}
-.card_selection:nth-child(4) {
-    --x-off: 0; /* Variable for the position of the card so they stay in place */
-    z-index: 4;
+.card_grid 
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .card_selection:hover {
     transform: translateX(var(--x-off)) scale(1.05);
-    z-index: 6;
 }
 
 .tab_title {
@@ -434,7 +428,8 @@ button {
   justify-content: center;
 }
 
-.status {
+.status 
+{
   font-size: 0.8rem; 
   width: 8rem;
   font-weight: 600;        
@@ -448,21 +443,26 @@ button {
   text-align: center;
 }
 
-.status.preproduction {
+.status.preproduction 
+{
   background-color: #eeeb249a;
 }
 
-.status.prototype {
+.status.prototype 
+{
   background-color: #be33ff9a;
 }
-.status.development {
+.status.development 
+{
   background-color: #fca5238a; 
 }
-.status.complete {
+.status.complete 
+{
   background-color: #2eff2e7c; 
 }
 
-.game_image {
+.game_image 
+{
   width: 30%;
   object-fit:fill
 }
@@ -499,27 +499,31 @@ button {
     width: inherit;
 }
 
-.timeline_container {
+.timeline_container 
+{
     margin-top: 20px;
     padding-left: 20px;
     position: relative;
     max-width: 600px;
 }
 
-.timeline {
+.timeline 
+{
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 10px;
 }
 
-.timeline_enter {
+.timeline_enter 
+{
     display: flex;
     align-items: flex-start;
     position: relative;
 }
 
-.timeline_enter .dot {
+.timeline_enter .dot 
+{
     width: 12px;
     height: 12px;
     background-color: #00ff99;
@@ -528,7 +532,8 @@ button {
     top: 12px;
 }
 
-.timeline_enter .log_text {
+.timeline_enter .log_text 
+{
     font-family: 'Space Mono', monospace;
     background: #111;
     border: 2px solid #00ff99;
@@ -538,7 +543,8 @@ button {
     animation: flicker 1.5s infinite alternate;
 }
 
-.timeline_enter {
+.timeline_enter 
+{
     opacity: 0;
     transform: translateX(100px);
     transition: transform 0.4s ease-in, opacity 1s ease-in-out;
@@ -551,7 +557,8 @@ button {
 
 /* Modelling Page*/
 
-.gallery_grid {
+.gallery_grid 
+{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   gap: 20px;
@@ -571,11 +578,13 @@ button {
     padding-bottom: 10px;
 }
 
-.filter_controls {
+.filter_controls 
+{
     margin: 20px 0;
 }
 
-.filter_button {
+.filter_button 
+{
     background: transparent;
     border: 2px solid #ffffff;
     padding: 5px 10px;
@@ -584,12 +593,14 @@ button {
     font-weight: bold;
 }
 
-.filter_button:hover, .filter_button.active {
+.filter_button:hover, .filter_button.active 
+{
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
 
-.work_card {
+.work_card
+ {
     width: 300px;
     border: 2px solid #ffffff;
     overflow: hidden;
@@ -603,38 +614,163 @@ button {
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-out;
 }
 
-.work_card:hover {
+.work_card:hover 
+{
     transform: scale(1.02);
 }
 
-.work_card img {
+.work_card img 
+{
     width: 100%;
     height: auto;
     border: 2px solid #ffffff;
     aspect-ratio: 16/9;
 }
 
-.work_card.non_interactable {
+.work_card.non_interactable 
+{
     opacity: 0.2;
     transform: scale(0.98);
     pointer-events: none;
     transition: opacity 0.2s ease-in, transform 0.2s ease-in-out;
 }
 
-.work_info {
+.work_info 
+{
     padding: 16px;
     border: 2px solid #ffffff;
 }
 
-.work_info h2 {
+.work_info h2 
+{
     font-size: 1.2rem;
     margin-bottom: 8px;
 }
 
-.work_info p {
+.work_info p 
+{
     font-size: 0.8rem;
     line-height: 1.5;
 }
+
+/* Media Queries */
+
+@media (max-width: 750px) {
+    html, body 
+    {
+        overflow: auto;
+    }
+
+    nav .returnbutton
+    {
+        display: none;
+    }
+
+    .main_content_boot 
+    {
+        flex-direction: column;
+        padding: 20px;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .choosing_selection 
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .tab_icon 
+    {
+        display: none;
+    }
+
+    .header 
+    {
+        height: auto;
+        padding: 10px;
+    }
+
+    .nav_languages, .nav_home 
+    {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .mobile_warning 
+    {
+        display: block;
+        width: 80vw;
+        font-size: 0.8rem;
+        padding: 8px 6px;
+        bottom: 5px;
+    }
+
+    .aboutme_me 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 25%;
+    }
+
+    .aboutme_content 
+    {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .skill_category 
+    {
+        min-width: 100%;
+    }
+
+    .gallery_grid 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .game_card 
+    {
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .game_image 
+    {
+        width: 100%;
+    }
+
+    .timeline_container 
+    {
+        padding: 0 10px;
+    }
+
+    .card_selection 
+    {
+        height: 40vh;
+        position: relative;
+        transform: none;
+        z-index: auto;
+    }
+
+    .card_selection:nth-child(1),.card_selection:nth-child(2),.card_selection:nth-child(3),.card_selection:nth-child(4) {
+        --x-off: 0;
+    }
+
+    .choosing_selection {
+        padding: 20px;
+        justify-content: center;
+    }
+}
+
 
 /* Animations */
 

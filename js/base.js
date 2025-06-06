@@ -23,7 +23,9 @@ window.onload = async function () {
     await new Promise(res => setTimeout(res, 50));
     if (document.querySelector('.boot_screen') !== null) {
         await BootUp();
+        console.log("Boot Screen Completed")
     } else {
+        console.log("Boot Screen Failed")
         const header = document.querySelector('.header');
         if (header) {
             header.classList.remove('boot_hidden');
